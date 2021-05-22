@@ -15,8 +15,15 @@ class Matrix{
 public:
     void setValue(vector<vector<double>>);
     void showMatrix();
+    Matrix elementWiseMultiple(Matrix &a);
     Matrix operator+(Matrix &a);
     Matrix operator-(Matrix &a);
+    Matrix operator*(Matrix &a);
+    Matrix operator*(vector<double> a);
+    friend Matrix operator*(vector<double> vec, Matrix &a);
+
+
+
 
     vector<vector<double>> mat;
     int row;
