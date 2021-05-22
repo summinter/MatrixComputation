@@ -16,6 +16,18 @@ public:
     void setValue(vector<vector<double>>);
     void showMatrix();
     Matrix elementWiseMultiple(Matrix &a);
+    double findMax();
+    double findMaxByRow(int rowNum);
+    double findMaxByCol(int colNum);
+    double findMin();
+    double findMinByRow(int rowNum);
+    double findMinByCol(int colNum);
+    double getSum();
+    double getSumByRow(int rowNum);
+    double getSumByCol(int colNum);
+    double getAverage();
+    double getAverageByRow(int rowNum);
+    double getAverageByCol(int colNum);
     Matrix operator+(Matrix &a);
     Matrix operator-(Matrix &a);
     Matrix operator*(Matrix &a);

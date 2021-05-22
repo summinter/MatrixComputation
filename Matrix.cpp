@@ -113,6 +113,117 @@ Matrix operator*(vector<double> vec, Matrix &a){
     }
     return res;
 }
+double Matrix::findMax(){
+    double max = INT32_MIN;
+    for(int i = 0; i < mat.size();i++){
+        for(int j = 0;j < mat[0].size();j++){
+            if(mat[i][j] > max){
+                max = mat[i][j];
+            }
+        }
+    }
+    return max;
+}
+
+double Matrix::findMaxByRow(int rowNum){
+    if(rowNum > row){
+        cout << "Your input row number is too large";
+        exit(0);
+    }
+    double max = INT32_MIN;
+    for(int i = 0; i < mat[0].size();i++){
+        if(mat[rowNum][i] > max){
+            max = mat[rowNum][i];
+        }
+    }
+    return max;
+}
+double Matrix::findMaxByCol(int colNum){
+    if(colNum > col){
+        cout << "Your input col number is too large";
+        exit(0);
+    }
+    double max = INT32_MIN;
+    for(int i = 0; i < mat.size();i++){
+        if(mat[i][colNum] > max){
+            max = mat[i][colNum];
+        }
+    }
+    return max;
+}
+
+double Matrix::findMin(){
+    double min = INT32_MAX;
+    for(int i = 0; i < mat.size();i++){
+        for(int j = 0;j < mat[0].size();j++){
+            if(mat[i][j] < min){
+                min = mat[i][j];
+            }
+        }
+    }
+    return min;
+}
+
+double Matrix::findMinByRow(int rowNum){
+    if(rowNum > row){
+        cout << "Your input row number is too large";
+        exit(0);
+    }
+    double min = INT32_MAX;
+    for(int i = 0; i < mat[0].size();i++){
+        if(mat[rowNum][i] < min){
+            min = mat[rowNum][i];
+        }
+    }
+    return min;
+}
+double Matrix::findMinByCol(int colNum){
+    if(colNum > col){
+        cout << "Your input col number is too large";
+        exit(0);
+    }
+    double min = INT32_MAX;
+    for(int i = 0; i < mat.size();i++){
+        if(mat[i][colNum] < min){
+            min = mat[i][colNum];
+        }
+    }
+    return min;
+}
+
+double Matrix::getSum(){
+    double sum = 0;
+    for(int i = 0; i < mat.size();i++){
+        for(int j = 0;j < mat[0].size();j++){
+            sum += mat[i][j];
+        }
+    }
+    return sum;
+}
+double Matrix::getSumByRow(int rowNum){
+    double sum = 0;
+    for(int i = 0;i < mat[0].size();i++){
+        sum += mat[rowNum][i];
+    }
+    return sum;
+}
+double Matrix::getSumByCol(int colNum){
+    double sum = 0;
+    for(int i = 0;i < mat.size();i++){
+        sum += mat[i][colNum];
+    }
+    return sum;
+}
+
+double Matrix::getAverage(){
+    return Matrix::getSum()/(row*col);
+}
+double Matrix::getAverageByRow(int rowNum){
+    return Matrix::getSumByRow(rowNum)/(row*col);
+}
+double Matrix::getAverageByCol(int colNum){
+    return Matrix::getSumByCol(colNum)/(row*col);
+}
 
 
 
