@@ -2,13 +2,14 @@
 // Created by ccyys on 2021/5/22.
 //
 
-#include "Matrix.h"
-
+#include "Matrix.hpp"
 int main(){
-    Matrix matrix1(3,4);
+    Matrix<double> matrix1(3,4);
     matrix1.setValue({{1,2,3,4},
                      {5,6,7,8},
                      {9,10,11,12}});
-    cout << matrix1.findMaxByCol(1) << " " << matrix1.findMinByCol(1) << " " << matrix1.getSumByCol(1) << " " << matrix1.getAverageByCol(1);
+    vector<double> vec = {1,2,3};
+    Matrix<double> matrix2 = vec * matrix1;
+    matrix2.showMatrix();
 
 }
