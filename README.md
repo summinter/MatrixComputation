@@ -1,5 +1,5 @@
 # MatrixComputation
-Sustech CS208 Class Project
+Sustech CS205 Class Project
 Building a library for matrix computation
 
 Matrix is an important concept introduced in linear algebra. Matrix calculation is widely used in many practical applications, such as image processing and machine learning. Programmers can indeed use many different existing libraries, and in certain cases, programmers are required to design their own matrix calculation libraries for specific implementations. This project will build a new library (do not attempt to directly copy codes from other existing library) that can perform the following operations on the matrix:
