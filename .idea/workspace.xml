@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="MatrixComputation" targetName="MatrixComputation" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector">
+      <change afterPath="$PROJECT_DIR$/MatrixTest/testComplex.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Matrix.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Matrix.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +44,14 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ssP8i36ksCMyWbNP9FqpL6v7y1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,18 +67,29 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="MatrixComputation" type="CMakeRunConfiguration" factoryName="Application" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MatrixComputation" TARGET_NAME="MatrixComputation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MatrixComputation" RUN_TARGET_NAME="MatrixComputation">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="CMake Application.MatrixComputation" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,6 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1621658170505</updated>
       <workItem from="1621658175369" duration="22085000" />
+      <workItem from="1623219953978" duration="4036000" />
     </task>
     <task id="LOCAL-00001" summary="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector">
       <created>1621670305291</created>
@@ -87,9 +125,52 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector" />
     <option name="LAST_COMMIT_MESSAGE" value="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622034266582">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622034266581" />
+    <state width="1876" height="295" key="GridCell.Tab.0.bottom" timestamp="1623223935551">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623223935551" />
+    <state width="1876" height="295" key="GridCell.Tab.0.center" timestamp="1623223935550">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623223935550" />
+    <state width="1876" height="295" key="GridCell.Tab.0.left" timestamp="1623223935550">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623223935550" />
+    <state width="1876" height="295" key="GridCell.Tab.0.right" timestamp="1623223935551">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623223935551" />
+    <state width="1876" height="364" key="GridCell.Tab.1.bottom" timestamp="1623223159932">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="364" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623223159932" />
+    <state width="1876" height="364" key="GridCell.Tab.1.center" timestamp="1623223159931">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="364" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623223159931" />
+    <state width="1876" height="364" key="GridCell.Tab.1.left" timestamp="1623223159930">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="364" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623223159930" />
+    <state width="1876" height="364" key="GridCell.Tab.1.right" timestamp="1623223159931">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1876" height="364" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623223159931" />
+    <state x="461" y="184" key="SettingsEditor" timestamp="1622035232810">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1622035232810" />
   </component>
 </project>

@@ -70,6 +70,9 @@ public:
 
     T det();
 
+    T eigenValue();
+
+
     friend Matrix<T> operator*(T a, const Matrix &other) {
         Matrix res(other.row, other.col);
         for (int i = 0; i < other.row; i++) {
@@ -109,7 +112,17 @@ public:
 
 template<class T>
 Matrix<T> Matrix<T>::conjugation() {
-    return this->transposition();
+    Matrix res(col, row);
+    res = this->transposition();
+    if(typeid(T)==typeid(complex<double>)){
+        for(int j = 0;j<col;j++){
+            for(int i = 0;i<row;i++){
+                res.mat[j][i] = conj(res.mat[j][i]);
+            }
+        }
+    }
+    return res;
+
 //    TO DO
 }
 
@@ -483,4 +496,7 @@ void Matrix<T>::Swap(int i, int j, int row) {
         mat[i][m]-=mat[j][m];
     }
 }
+
+
+
 #endif
