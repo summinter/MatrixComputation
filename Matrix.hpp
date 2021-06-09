@@ -123,7 +123,6 @@ Matrix<T> Matrix<T>::conjugation() {
     }
     return res;
 
-//    TO DO
 }
 
 template<class T>
@@ -247,10 +246,22 @@ Matrix<T> Matrix<T>::operator*(vector<T> vec) {
 }
 
 template<class T>
+Matrix<T> Matrix<T>::operator*(T a) {
+    Matrix res(row, col);
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            res.mat[i][j] = mat[i][j] * a;
+        }
+    }
+    return res;
+}
+
+
+template<class T>
 Matrix<T> Matrix<T>::operator/(T a) {
     if (a == 0) {
-        cout << "Divisor can not be zero! Division operation failed.";
-        exit(0);
+          cout << "Divisor can not be zero! Division operation failed.";
+          exit(0);
     }
     Matrix res(row, col);
     for (int i = 0; i < row; i++) {
@@ -393,16 +404,6 @@ T Matrix<T>::getAverageByCol(int colNum) {
     return Matrix::getSumByCol(colNum) / (row * col);
 }
 
-template<class T>
-Matrix<T> Matrix<T>::operator*(T a) {
-    Matrix res(row, col);
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            res.mat[i][j] = mat[i][j] * a;
-        }
-    }
-    return res;
-}
 
 template<class T>
 T Matrix<T>::dotProduct(Matrix &other) {
