@@ -173,6 +173,19 @@ void Matrix<T>::setValue(vector <T> valueMat) {
 }
 
 template<class T>
+void Matrix<T>::setValue(Mat valueMat) {
+    if (valueMat.rows != mat.size() || valueMat.cols != mat[0].size()) {
+        cout << "The input value's size does not match the matrix!";
+        exit(0);
+    }
+    for (int i = 0; i < valueMat.rows; i++) {
+        for (int j = 0; j < valueMat.cols; j++) {
+            this->mat[i][j]=valueMat.at<double>(i, j);
+        }
+    }
+}
+
+template<class T>
 void Matrix<T>::showMatrix() {
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
@@ -510,11 +523,17 @@ void Matrix<T>::Swap(int i, int j, int row) {
 }
 
 template<class T>
-int Matrix<T>::find(int i, int row) {
-    for (int m = i + 1; m < row; m++)
-        if (mat[m][i] == 1.0)
-            return m;
-    return 0;
+Mat Matrix<T>::intoOpenCV() {
+    Mat mat(Size(this->row, this->col), CV_64FC1);
+    for (int i = 0; i < this->row; i++) {
+        for (int j = 0; j < this->col; j++) {
+            if (this->mat[i][j].imag() == 0)
+                mat.at<double>(i, j) = this->mat[i][j];
+            else cout << "The matrix has complex value and can't be transferred to OpenCV matrix! " << endl;
+            exit(0);
+        }
+    }
+    return mat;
 }
 
 #endif
