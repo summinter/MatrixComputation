@@ -29,11 +29,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="增加复数支持，共轭计算函数">
+    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="增加inverse逆矩阵计算">
+      <change afterPath="$PROJECT_DIR$/CS205 Report 董骁 许博清.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Matrix.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Matrix.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatrixTest/testComplex.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixTest/testComplex.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -86,9 +86,9 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
@@ -108,7 +108,9 @@
       <workItem from="1621658175369" duration="22085000" />
       <workItem from="1623219953978" duration="14412000" />
       <workItem from="1623248946767" duration="35000" />
-      <workItem from="1623324541392" duration="3377000" />
+      <workItem from="1623324541392" duration="6101000" />
+      <workItem from="1623332018039" duration="897000" />
+      <workItem from="1623333234440" duration="507000" />
     </task>
     <task id="LOCAL-00001" summary="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector">
       <created>1621670305291</created>
@@ -131,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623225817051</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加inverse逆矩阵计算">
+      <created>1623328188847</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623328188847</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,29 +161,30 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector" />
     <MESSAGE value="增加复数支持，共轭计算函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加复数支持，共轭计算函数" />
+    <MESSAGE value="增加inverse逆矩阵计算" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加inverse逆矩阵计算" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622034266582">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622034266581" />
-    <state width="1876" height="291" key="GridCell.Tab.0.bottom" timestamp="1623327942043">
+    <state width="1876" height="230" key="GridCell.Tab.0.bottom" timestamp="1623332936084">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623327942043" />
-    <state width="1876" height="291" key="GridCell.Tab.0.center" timestamp="1623327942042">
+    <state width="1876" height="230" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623332936084" />
+    <state width="1876" height="230" key="GridCell.Tab.0.center" timestamp="1623332936083">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="291" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623327942042" />
-    <state width="1876" height="291" key="GridCell.Tab.0.left" timestamp="1623327942042">
+    <state width="1876" height="230" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623332936083" />
+    <state width="1876" height="230" key="GridCell.Tab.0.left" timestamp="1623332936083">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="291" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623327942042" />
-    <state width="1876" height="291" key="GridCell.Tab.0.right" timestamp="1623327942042">
+    <state width="1876" height="230" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623332936083" />
+    <state width="1876" height="230" key="GridCell.Tab.0.right" timestamp="1623332936083">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="291" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623327942042" />
+    <state width="1876" height="230" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623332936083" />
     <state width="1876" height="364" key="GridCell.Tab.1.bottom" timestamp="1623326100397">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -191,21 +201,33 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1876" height="364" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623326100397" />
+    <state x="184" y="90" key="MergeDialog" timestamp="1623328654945">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="184" y="90" key="MergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1623328654945" />
+    <state x="595" y="300" key="MultipleFileMergeDialog" timestamp="1623328654959">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="595" y="300" key="MultipleFileMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1623328654959" />
     <state x="461" y="184" key="SettingsEditor" timestamp="1622035232810">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1622035232810" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623226274935">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623328768714">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623226274935" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623328768714" />
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1623328774200">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1623328774200" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Matrix.hpp</url>
-          <line>283</line>
+          <line>277</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

@@ -11,7 +11,6 @@
 #include <vector>
 
 using namespace std;
-using namespace cv;
 
 
 template<class T>
@@ -69,7 +68,8 @@ public:
 
     bool isVector() const;
 
-    T det();
+    T det(Matrix &a);
+
 
     T eigenValue();
 
@@ -77,7 +77,7 @@ public:
 
     Matrix inverse();
 
-    Mat intoOpenCV();
+    T trace();
 
 
     friend Matrix<T> operator*(T a, const Matrix &other) {
@@ -114,7 +114,7 @@ public:
 
     void swap(int i, int j, int row);
 
-    int swap(int i, int row);
+    int find(int i, int row);
 };
 
 template<class T>
@@ -266,6 +266,7 @@ Matrix<T> Matrix<T>::operator*(T a) {
 
 template<class T>
 Matrix<T> Matrix<T>::operator/(T a) {
+
     if (a == complex<double>(0,0)) {
         cout << "Divisor can not be zero! Division operation failed.";
         exit(0);
@@ -282,7 +283,12 @@ Matrix<T> Matrix<T>::operator/(T a) {
 
 template<class T>
 T Matrix<T>::findMax() {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     T max = INT32_MIN;
+
     for (int i = 0; i < mat.size(); i++) {
         for (int j = 0; j < mat[0].size(); j++) {
             if (mat[i][j] > max) {
@@ -418,17 +424,17 @@ T Matrix<T>::getSumByCol(int colNum) {
 
 template<class T>
 T Matrix<T>::getAverage() {
-    return Matrix::getSum() / complex<double>((row * col),0);
+    return Matrix::getSum() / T(row * col);
 }
 
 template<class T>
 T Matrix<T>::getAverageByRow(int rowNum) {
-    return Matrix::getSumByRow(rowNum) / complex<double>((row * col),0);
+    return Matrix::getSumByRow(rowNum) / T(row * col);
 }
 
 template<class T>
 T Matrix<T>::getAverageByCol(int colNum) {
-    return Matrix::getSumByCol(colNum) / complex<double>((row * col),0);
+    return Matrix::getSumByCol(colNum) / T(row * col);
 }
 
 
@@ -481,6 +487,9 @@ T det(Matrix<T> &a) {
     return will_return;
 }
 
+
+
+
 template<class T>
 int Matrix<T>::find( int i, int row) {
     for(int m=i+1;m<row;m++)
@@ -530,6 +539,7 @@ Matrix<T> inverse(Matrix<T> &a){
             std::vector<std::vector<T>> result_vector( a.row, std::vector<T>( a.col, zeroNumber));
             for (int32_t i = 0; i < a.row; i++) {
                 for (int32_t j = 0; j < a.col; j++) {
+                    //vector<vector<T>> submatrix(this->rows() - 1, vector<T>(this->cols() - 1, static_cast<T>(0)));
                     Matrix<T> submatrix(a.row,a.col);
                     submatrix.setValue(vector<vector<T>>(a.mat));
                     submatrix.mat.erase(submatrix.mat.begin() + i);
@@ -547,24 +557,25 @@ Matrix<T> inverse(Matrix<T> &a){
             return will_return;
         }
         return Matrix<T>(1, 1);
-    }
-
-
-
-
+}
 
 template<class T>
-Mat Matrix<T>::intoOpenCV() {
-    Mat mat(Size(this->row, this->col), CV_64FC1);
-    for (int i = 0; i < this->row; i++) {
-        for (int j = 0; j < this->col; j++) {
-            if (this->mat[i][j].imag() == 0)
-                mat.at<double>(i, j) = this->mat[i][j];
-            else cout << "The matrix has complex value and can't be transferred to OpenCV matrix! " << endl;
-            exit(0);
-        }
+T Matrix<T>::trace() {
+    if(row != col){
+        cout << "only a matrix with row equal to col has a trace.";
+        exit(0);
     }
-    return mat;
+    int sum = 0;
+    for(int i = 0;i<row;i++){
+        sum += mat[i][i];
+    }
+    return sum;
 }
+
+
+
+
+
+
 
 #endif

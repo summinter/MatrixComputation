@@ -10,10 +10,15 @@ int main(){
 
 
     Matrix<double> matrix1(3,3);
-    matrix1.setValue({{3,7,5},
-                      {6,9,7},
-                      {8,8,8}});
+    matrix1.setValue({{1,2,3},
+                      {4,5,6},
+                      {7,8,9}});
+    Matrix<double> matrix2(2,2);
+    matrix2.setValue({{1,2},
+                      {4,5}});
 
-    inverse(matrix1).showMatrix();
+    cout << matrix1.trace();
+
+
 
 }
