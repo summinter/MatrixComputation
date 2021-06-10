@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CPP/Assignment3/MatrixComputation/Matrix.hpp
+iostream
+-
+cmath
+-
+algorithm
+-
+vector
+-
+
+D:/CPP/Assignment3/MatrixComputation/main.cpp
+complex
+-
+Matrix.hpp
+D:/CPP/Assignment3/MatrixComputation/Matrix.hpp
+
