@@ -11,6 +11,7 @@
 #include <vector>
 
 using namespace std;
+using namespace cv;
 
 
 template<class T>
@@ -68,14 +69,15 @@ public:
 
     bool isVector() const;
 
-    T det(Matrix &a);
-
+    T det();
 
     T eigenValue();
 
     Matrix convolution(Matrix &a);
 
     Matrix inverse();
+
+    Mat intoOpenCV();
 
 
     friend Matrix<T> operator*(T a, const Matrix &other) {
@@ -112,7 +114,7 @@ public:
 
     void swap(int i, int j, int row);
 
-    int find(int i, int row);
+    int swap(int i, int row);
 };
 
 template<class T>
@@ -264,7 +266,6 @@ Matrix<T> Matrix<T>::operator*(T a) {
 
 template<class T>
 Matrix<T> Matrix<T>::operator/(T a) {
-
     if (a == complex<double>(0,0)) {
         cout << "Divisor can not be zero! Division operation failed.";
         exit(0);
@@ -281,12 +282,7 @@ Matrix<T> Matrix<T>::operator/(T a) {
 
 template<class T>
 T Matrix<T>::findMax() {
-    if(typeid(T) == typeid(complex<double>)){
-        cout << "complex can not compare";
-        exit(0);
-    }
     T max = INT32_MIN;
-
     for (int i = 0; i < mat.size(); i++) {
         for (int j = 0; j < mat[0].size(); j++) {
             if (mat[i][j] > max) {
@@ -485,9 +481,6 @@ T det(Matrix<T> &a) {
     return will_return;
 }
 
-
-
-
 template<class T>
 int Matrix<T>::find( int i, int row) {
     for(int m=i+1;m<row;m++)
@@ -560,5 +553,18 @@ Matrix<T> inverse(Matrix<T> &a){
 
 
 
+template<class T>
+Mat Matrix<T>::intoOpenCV() {
+    Mat mat(Size(this->row, this->col), CV_64FC1);
+    for (int i = 0; i < this->row; i++) {
+        for (int j = 0; j < this->col; j++) {
+            if (this->mat[i][j].imag() == 0)
+                mat.at<double>(i, j) = this->mat[i][j];
+            else cout << "The matrix has complex value and can't be transferred to OpenCV matrix! " << endl;
+            exit(0);
+        }
+    }
+    return mat;
+}
 
 #endif
