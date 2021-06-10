@@ -61,9 +61,22 @@ int main(){
     cout << "--------------------"<< endl;
 
 
-//    //test /
-//    cout << "test /: " << endl;
-//    (matrix1/5).showMatrix();
-//    cout << "--------------------"<< endl;
+    //test /
+    cout << "test /: " << endl;
+    (matrix1/5).showMatrix();
+    cout << "--------------------"<< endl;
+
+    //test getSum()
+    cout << "test getSum(): " << endl;
+    cout << matrix1.getSum() << endl;
+    cout << "--------------------"<< endl;
+
+
+    //test getAverage()
+    cout << "test getAverage(): " << endl;
+    cout << matrix1.getAverage() << endl;
+    cout << "--------------------"<< endl;
+
+
 
 }

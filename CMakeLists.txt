@@ -3,4 +3,4 @@ project(MatrixComputation)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MatrixComputation  Matrix.hpp MatrixTest/testComplex.cpp)
+add_executable(MatrixComputation  Matrix.hpp main.cpp)

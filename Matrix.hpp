@@ -68,9 +68,14 @@ public:
 
     bool isVector() const;
 
-    T det();
+    T det(Matrix &a);
+
 
     T eigenValue();
+
+    Matrix convolution(Matrix &a);
+
+    Matrix inverse();
 
 
     friend Matrix<T> operator*(T a, const Matrix &other) {
@@ -105,9 +110,9 @@ public:
 
     Matrix(int row, int col);
 
-    void Swap(int i, int j, int row);
+    void swap(int i, int j, int row);
 
-    int Find(int i, int row);
+    int find(int i, int row);
 };
 
 template<class T>
@@ -259,9 +264,10 @@ Matrix<T> Matrix<T>::operator*(T a) {
 
 template<class T>
 Matrix<T> Matrix<T>::operator/(T a) {
-    if (a == 0) {
-          cout << "Divisor can not be zero! Division operation failed.";
-          exit(0);
+
+    if (a == complex<double>(0,0)) {
+        cout << "Divisor can not be zero! Division operation failed.";
+        exit(0);
     }
     Matrix res(row, col);
     for (int i = 0; i < row; i++) {
@@ -275,7 +281,12 @@ Matrix<T> Matrix<T>::operator/(T a) {
 
 template<class T>
 T Matrix<T>::findMax() {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     T max = INT32_MIN;
+
     for (int i = 0; i < mat.size(); i++) {
         for (int j = 0; j < mat[0].size(); j++) {
             if (mat[i][j] > max) {
@@ -288,6 +299,10 @@ T Matrix<T>::findMax() {
 
 template<class T>
 T Matrix<T>::findMaxByRow(int rowNum) {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     if (rowNum > row) {
         cout << "Your input row number is too large";
         exit(0);
@@ -303,6 +318,10 @@ T Matrix<T>::findMaxByRow(int rowNum) {
 
 template<class T>
 T Matrix<T>::findMaxByCol(int colNum) {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     if (colNum > col) {
         cout << "Your input col number is too large";
         exit(0);
@@ -318,6 +337,10 @@ T Matrix<T>::findMaxByCol(int colNum) {
 
 template<class T>
 T Matrix<T>::findMin() {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     T min = INT32_MAX;
     for (int i = 0; i < mat.size(); i++) {
         for (int j = 0; j < mat[0].size(); j++) {
@@ -331,6 +354,10 @@ T Matrix<T>::findMin() {
 
 template<class T>
 T Matrix<T>::findMinByRow(int rowNum) {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     if (rowNum > row) {
         cout << "Your input row number is too large";
         exit(0);
@@ -346,6 +373,10 @@ T Matrix<T>::findMinByRow(int rowNum) {
 
 template<class T>
 T Matrix<T>::findMinByCol(int colNum) {
+    if(typeid(T) == typeid(complex<double>)){
+        cout << "complex can not compare";
+        exit(0);
+    }
     if (colNum > col) {
         cout << "Your input col number is too large";
         exit(0);
@@ -391,17 +422,17 @@ T Matrix<T>::getSumByCol(int colNum) {
 
 template<class T>
 T Matrix<T>::getAverage() {
-    return Matrix::getSum() / (row * col);
+    return Matrix::getSum() / complex<double>((row * col),0);
 }
 
 template<class T>
 T Matrix<T>::getAverageByRow(int rowNum) {
-    return Matrix::getSumByRow(rowNum) / (row * col);
+    return Matrix::getSumByRow(rowNum) / complex<double>((row * col),0);
 }
 
 template<class T>
 T Matrix<T>::getAverageByCol(int colNum) {
-    return Matrix::getSumByCol(colNum) / (row * col);
+    return Matrix::getSumByCol(colNum) / complex<double>((row * col),0);
 }
 
 
@@ -435,54 +466,30 @@ bool Matrix<T>::isVector() const {
 }
 
 template<class T>
-T Matrix<T>::det() {
-    Matrix tmp=Matrix(row,col);
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            tmp.mat[i][j] = mat[i][j];
-        }
+T det(Matrix<T> &a) {
+    if (a.mat.size() == 1) {
+        return a.mat.front().front();
     }
-    for(int i=0;i<row-1;i++){
-        if(tmp.mat[i][i]!=0){//对角线元素不为0
-            if(mat[i][i]!=1.0)
-                if(int j=tmp.Find(i,row)){ tmp.Swap(i,j,row);}
-            for(int m=i+1;m<row;m++){
-                if(tmp.mat[m][i]!=0){
-                    float temp=-(tmp.mat[m][i])/tmp.mat[i][i];
-                    for(int p=0;p<row;p++){//R(m)+tempRi
-                        tmp.mat[m][p]=tmp.mat[m][p]+temp*mat[i][p];
-                    }
-                }
-                else continue;
+    uint32_t size_m = a.mat.size();
+    Matrix<T> submatrix(a.row, a.col);
+    submatrix.mat = vector<vector<T>>(size_m - 1, vector<T>(size_m - 1, static_cast<T>(0)));
+    T will_return(0);
+    for (uint32_t i = 0; i < size_m; ++i) {
+        for (uint32_t j = 0; j < size_m - 1; ++j) {
+            for (uint32_t k = 0; k < size_m - 1; ++k) {
+                submatrix.mat[j][k] = a.mat[(((i > j) ? 0 : 1) + j)][k + 1];
             }
         }
-
-        else {//若对角线元素为0
-            int m;
-            for(m=i+1;m<row;m++){//
-                if(tmp.mat[m][i]){//使对角线元素非0
-                    for(int p=0;p<row;p++)//Ri+Rm
-                        tmp.mat[i][p]=tmp.mat[m][p]+tmp.mat[i][p];
-                    break;
-                }
-                else continue;
-            }
-            if(m==row){
-                return 0;
-            }
-            i--;
-        }
+        will_return += ((i % 2) ? -1 : 1) * a.mat[i].front() * det(submatrix);
     }
-
-    float sum=tmp.mat[0][0];
-    for(int i=1;i<row;i++)
-        sum=sum*tmp.mat[i][i];
-    return sum;
-
+    return will_return;
 }
 
+
+
+
 template<class T>
-int Matrix<T>::Find( int i, int row) {
+int Matrix<T>::find( int i, int row) {
     for(int m=i+1;m<row;m++)
         if(mat[m][i]==1.0)
             return m;
@@ -490,13 +497,67 @@ int Matrix<T>::Find( int i, int row) {
 }
 
 template<class T>
-void Matrix<T>::Swap(int i, int j, int row) {
+void Matrix<T>::swap(int i, int j, int row) {
     for(int m=0;m<row;m++){
         mat[i][m]+=mat[j][m];
         mat[j][m]=mat[i][m]-mat[j][m];
         mat[i][m]-=mat[j][m];
     }
 }
+
+template<class T>
+Matrix<T> Matrix<T>::convolution(Matrix &kernel){
+    T temp;
+    Matrix<T> result(row, col);
+    int kLength = kernel.col;
+    int kWidth = kernel.row;
+
+    for (int i = 0; i < col; i++) {
+        for (int j = 0; j < row; j++) {
+            temp = 0;
+            for (int m = 0; m < kLength; m++) {
+                for (int n = 0; n < kWidth; n++) {
+                    if ((i - m) >= 0 && (i - m) < col && (j - n) >= 0 && (j - n) < row) {
+                        temp += kernel.mat[m][n] * this->mat[i - m][j - n];
+                    }
+                }
+            }
+            result.mat[i][j] = temp;
+        }
+    }
+    return result;
+}
+
+template<class T>
+Matrix<T> inverse(Matrix<T> &a){
+        //可逆条件
+        if (a.row==a.col && a.row > 1 && det(a) != 0) {
+            static constexpr T zeroNumber{0};
+            static constexpr T oneElement{1};
+            std::vector<std::vector<T>> result_vector( a.row, std::vector<T>( a.col, zeroNumber));
+            for (int32_t i = 0; i < a.row; i++) {
+                for (int32_t j = 0; j < a.col; j++) {
+                    Matrix<T> submatrix(a.row,a.col);
+                    submatrix.setValue(vector<vector<T>>(a.mat));
+                    submatrix.mat.erase(submatrix.mat.begin() + i);
+                    for (int m = 0; m <  a.row - 1; ++m) {
+                        submatrix.mat[m].erase(submatrix.mat[m].begin() + j);
+                    }
+                    result_vector[j][i] =
+                            (((i + j) % 2) ? -1 : 1) * det(submatrix);//子矩阵展开得到伴随矩阵
+                }
+            }
+            Matrix<T> will_return(a.row,a.col);
+            will_return.setValue(result_vector);
+            will_return = will_return / det(a);
+            //will_return[i][j] = res[i][j] / this->determinant();//逆
+            return will_return;
+        }
+        return Matrix<T>(1, 1);
+    }
+
+
+
 
 
 
