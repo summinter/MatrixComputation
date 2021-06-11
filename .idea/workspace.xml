@@ -29,12 +29,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="增加复数支持，共轭计算函数">
+    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="增加稀疏矩阵支持">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Matrix.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Matrix.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MatrixTest/testComplex.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MatrixTest/testComplex.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +41,6 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
@@ -67,6 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,21 +78,11 @@
     </force-push-targets>
   </component>
   <component name="RunManager">
-    <configuration name="MatrixComputation" type="CMakeRunConfiguration" factoryName="Application" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MatrixComputation" TARGET_NAME="MatrixComputation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MatrixComputation" RUN_TARGET_NAME="MatrixComputation">
+    <configuration name="MatrixComputation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="CMake Application.MatrixComputation" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,6 +96,8 @@
       <workItem from="1623219953978" duration="14412000" />
       <workItem from="1623248946767" duration="35000" />
       <workItem from="1623324541392" duration="3377000" />
+      <workItem from="1623398400153" duration="521000" />
+      <workItem from="1623399967146" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector">
       <created>1621670305291</created>
@@ -131,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623225817051</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加稀疏矩阵支持">
+      <created>1623398912145</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623398912145</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,13 +148,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector" />
     <MESSAGE value="增加复数支持，共轭计算函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加复数支持，共轭计算函数" />
+    <MESSAGE value="增加稀疏矩阵支持" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加稀疏矩阵支持" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622034266582">
+    <state x="414" y="195" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623398452704">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622034266581" />
+    <state x="414" y="195" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1623398452704" />
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1623398376490">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1623398376490" />
     <state width="1876" height="291" key="GridCell.Tab.0.bottom" timestamp="1623327942043">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -195,20 +196,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1622035232810" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623226274935">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623398916868">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623226274935" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Matrix.hpp</url>
-          <line>283</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623398916868" />
   </component>
 </project>

@@ -67,7 +67,7 @@ public:
 
     T dotProduct(Matrix &other);
 
-    T crossProduct(Matrix &other);
+    vector<T> crossProduct(Matrix &other);
 
     bool isVector() const;
 
@@ -558,15 +558,23 @@ template <class T>
     }
 
     template <class T>
-    T Matrix<T>::crossProduct(Matrix &other)
+    vector<T> Matrix<T>::crossProduct(Matrix &other)
     {
+        vector<T> vec(3);
         if (!this->isVector() || !other.isVector())
         {
             cout << "The cross product requires two vectors! Cross product operation failed.";
             exit(0);
+        }else{
+            if(row == 3 && other.row==3){
+                vec[0] = mat[1][0] * ohter.mat[2][0] - mat[2][0] * ohter.mat[1][0]
+                vec[0] = mat[0][0] * ohter.mat[2][0] - mat[2][0] * ohter.mat[0][0]
+                vec[0] = mat[0][0] * ohter.mat[1][0] - mat[1][0] * ohter.mat[0][0]
+
+            }
         }
 
-        return nullptr;
+        return vec;
     }
 
     template <class T>
