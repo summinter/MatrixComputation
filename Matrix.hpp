@@ -748,4 +748,32 @@ template <class T>
         eigen(myMat, eValuesMat, eVectorsMat);
         return eVectorsMat;
     }
+template <class T>
+Matrix<T> Matrix<T>::reshape(int newRow, int newCol) {
+    Matrix res(min(this->row, newRow), min(this->col, newCol));
+    for (int i = 0; i < res.row; i++) {
+        for (int j = 0; j < res.col; j++) {
+            res.mat[i][j] = mat[i][j];
+        }
+    }
+    if (this->row > newRow) {
+        if (this->col < newCol) {
+            for (int i = 0; i < res.row; i++) {
+                res.mat[i].insert(res.mat[i].end(), newCol - this->col, 0);
+            }
+            res.col = newCol;
+        }
+    } else if (this->row < newRow) {
+        vector<T> newRows(newCol);
+        res.mat.insert(res.mat.end(), newRow - this->row, newRows);
+        res.row = newRow;
+        if (this->col < newCol) {
+            for (int i = 0; i < res.row; i++) {
+                res.mat[i].insert(res.mat[i].end(), newCol - this->col, 0);
+            }
+            res.col = newCol;
+        }
+    }
+    return res;
+}
 #endif
