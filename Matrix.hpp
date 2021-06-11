@@ -19,6 +19,7 @@ class Matrix
 {
 public:
     void setValue(vector<vector<T>>);
+    void setValueWithSparse(vector<vector<T>>);
 
     void showMatrix();
 
@@ -185,7 +186,22 @@ public:
         }
     }
 
-    template <class T>
+template <class T>
+void Matrix<T>::setValueWithSparse(vector<vector<T>> valueMat)
+{
+    for(vector<T> value: valueMat){
+        if(value.size()!= 3 || value[0] < 0 || value[0] >= row || value[1] < 0 || value[1] >= col){
+            cout << "The input coordinate is not in proper range.";
+            exit(0);
+        }else{
+            mat[value[0],value[1]] = value[2];
+        }
+    }
+}
+
+
+
+template <class T>
     void Matrix<T>::showMatrix()
     {
         for (int i = 0; i < row; i++)
