@@ -29,8 +29,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="增加稀疏矩阵支持">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fdec32c2-0d16-49d6-a540-8a046ec307ed" name="Default Changelist" comment="add reshape">
       <change beforePath="$PROJECT_DIR$/Matrix.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Matrix.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623398912145</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add reshape">
+      <created>1623402121868</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623402121868</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +155,8 @@
     <MESSAGE value="实现了数乘、数除、点乘、转置&#10;共轭没写完，行列式有bug，同时还写了isVector" />
     <MESSAGE value="增加复数支持，共轭计算函数" />
     <MESSAGE value="增加稀疏矩阵支持" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加稀疏矩阵支持" />
+    <MESSAGE value="add reshape" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reshape" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="195" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623398452704">
@@ -196,9 +203,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="184" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1622035232810" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623398916868">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623402114245">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623398916868" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623402114245" />
   </component>
 </project>

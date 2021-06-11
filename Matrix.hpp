@@ -83,6 +83,8 @@ public:
 
     Matrix inverse();
 
+    Matrix reshape(int row,int col);
+
     T trace();
 
     int find(int i, int row);
